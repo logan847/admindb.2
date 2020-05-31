@@ -1,0 +1,74 @@
+<div>
+    <div (click)='addOrder()'>add new order</div>
+    <form [formGroup]='formOrder' (ngsubmit)="myfunction()" *ngIf="add">
+        
+        <div>
+            <span>
+                <p>orderName</p>
+                <input type="text" formControlName='orderName' placeholder="orderName">
+            </span>
+            <span>
+                <p>stage</p>
+                <select class="custom-select" formControlName='stage'>
+                    <option placeholder="stage" disabled>stage</option>
+                    <option>active</option>
+                    <option>closed</option>
+                    <option>inProgress</option>
+                 </select>
+            </span>
+            <span>
+                <p>totalcost</p>
+                <input type="text" formControlName='totalcost' placeholder="totalcost">
+            </span>
+        </div>
+        <div (click)="myfunction()">submit</div>
+    </form>
+
+    <form [formGroup]='formOrder' (ngsubmit)="editOrderSubmit(position)" *ngIf="edit">
+        
+        <div>
+            <span>
+                <p>orderName</p>
+                <input type="text" formControlName='orderName' placeholder="orderName" value="data[position].orderName">
+            </span>
+            <span>
+                <p>stage</p>
+                <select class="custom-select" formControlName='stage'>
+                    <option placeholder="stage" disabled>stage</option>
+                    <option>active</option>
+                    <option>closed</option>
+                    <option>inProgress</option>
+                 </select>
+            </span>
+            <span>
+                <p>totalcost</p>
+                <input type="text" formControlName='totalcost' placeholder="totalcost">
+            </span>
+        </div>
+        <div (click)="editOrderSubmit(position)">submit</div>
+    </form>
+    
+</div>
+<div class="order" >
+<div class="order-stage">Active</div>
+<div *ngFor="let order of data; let i = index" > 
+    <div class="order-stage-item" *ngIf="order.stage === 'active' ">
+    <li (click)='onEdit(i)'>{{order.orderName}}</li>
+    <div (click)='editOrder(i)'>edit</div>
+    </div>
+</div>
+<div class="order-stage">Closed</div>
+<div *ngFor="let order of data; let i = index" > 
+    <div class="order-stage-item" *ngIf="order.stage === 'closed' ">
+    <li (click)='onEdit(i)' >{{order.orderName}}</li>
+    <div>edit</div>
+    </div>
+</div>
+<div class="order-stage">In Progress</div>
+<div *ngFor="let order of data; let i = index" > 
+    <div class="order-stage-item" *ngIf="order.stage === 'inProgress' ">
+    <li (click)='onEdit(i)'>{{order.orderName}}</li>
+    <div>edit</div>
+    </div>
+</div>
+</div>

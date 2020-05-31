@@ -1,0 +1,23 @@
+.order{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 95%;
+    &-stage{
+        border-bottom: solid 1px;
+        width: 95%;
+        padding-top: 30px;;
+        margin: auto;
+        
+        &-item{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            
+            
+        }
+    }
+    }
