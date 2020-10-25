@@ -4,11 +4,18 @@
     justify-content: space-between;
     width: 95%;
     &-stage{
-        border-bottom: solid 1px;
         width: 95%;
         padding-top: 30px;;
         margin: auto;
-        
+
+        &-hedder{
+            border-bottom: solid 1px;
+            display: flex;
+            flex-direction: row;
+            &-total{
+                margin-left: 1rem;
+            }
+        }
         &-item{
             display: flex;
             flex-direction: row;
@@ -16,8 +23,6 @@
             width: 95%;
             margin-left: auto;
             margin-right: auto;
-            
-            
         }
     }
     }
